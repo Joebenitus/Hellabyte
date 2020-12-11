@@ -55,7 +55,7 @@ Hellabyte | 1024 antibytes | 1024^24 bytes
 
 ## Important Numbers
 
- * _The entire internets data = 3,187,597,375,937,010,519,244 bytes (2.7 zettabytes)_
+ * _The entire internets data = 51,946,031,311,566,097,350,656 bytes (44 zettabytes)_
  * _Volume of a CD - 13,359.624 cubic mm_
  * _Density required for a black hole - 200,000,000,000,000,000 kg per cubic mm_
  * ***A standard sized cd with 200 brontobytes of data is dense enough to collapse upon itself and create a black hole***
@@ -76,5 +76,9 @@ Hellabyte | 1024 antibytes | 1024^24 bytes
 **Petabyte**: 2 PB is all US academic research libraries
 
 **Exabyte**: 5 EB is a text file of all words ever spoken by humans
+
+**Zettabyte**: 44 ZB is the all the entire internet's data in 2020
+
+**Yottabyte**: 25 YB is the combined storage capacity of the brains of every human that has ever lived
 
 
