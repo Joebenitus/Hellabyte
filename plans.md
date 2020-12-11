@@ -79,6 +79,9 @@ Hellabyte | 1024 antibytes | 1024^24 bytes
 
 **Zettabyte**: 44 ZB is the all the entire internet's data in 2020
 
-**Yottabyte**: 25 YB is the combined storage capacity of the brains of every human that has ever lived
+**Yottabyte**: 25 YB is the combined storage capacity of the brain of every human that has ever lived
 
+------
+**Coperbyte**: If 1 byte = 1 atom, the entire earth is about 91 CB
 
+**Sentabyte**: 14 SB is as many bytes as atoms in the Milky Way galaxy
