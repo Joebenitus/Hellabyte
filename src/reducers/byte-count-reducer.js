@@ -10,6 +10,15 @@ export default (state={}, action) => {
           id
         }
       })
+    case 'UPGRADE_BYTES_PER_CLICK':
+      return Object.assign({}, state, {
+        [id]: {
+          byteCount,
+          bytesPerClick: bytesPerClick * 2,
+          bytesPerSecond,
+          id
+        }
+      })
     default:
       return state;
   }

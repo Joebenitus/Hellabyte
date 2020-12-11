@@ -5,7 +5,7 @@ describe('byteCountReducer', () => {
   let action;
   const gameData = {
     byteCount: 1000000,
-    bytesPerClick: 10,
+    bytesPerClick: 8,
     bytesPerSecond: 6,
     id: 1
   };
@@ -30,6 +30,24 @@ describe('byteCountReducer', () => {
         bytesPerSecond,
         id
       }
-    })
+    });
   });
+  test('Should successfully multiply the current bytesPerClick by 2', () => {
+    const { byteCount, bytesPerClick, bytesPerSecond, id } = gameData;
+    action = {
+      type: 'UPGRADE_BYTES_PER_CLICK',
+      byteCount,
+      bytesPerClick,
+      bytesPerSecond,
+      id
+    };
+    expect(byteCountReducer({}, action)).toEqual({
+      [id]: {
+        byteCount,
+        bytesPerClick: bytesPerClick * 2,
+        bytesPerSecond,
+        id
+      }
+    })
+  })
 });
