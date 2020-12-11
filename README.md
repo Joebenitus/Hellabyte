@@ -1,70 +1,97 @@
-# Getting Started with Create React App
+# Hellabyte Planning
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+**Hellabyte will be my final capstone project for the code bootcamp *Epicodus***
 
-## Available Scripts
+Hellabyte is a clicker game in which the goal is to collect as many bytes of data as possible. The game begins with the user accumulating 1 byte of data every time they click the 'download bytes' button. Bytes can be used as currency to purchase upgrades which increase your production speed. This happens either via upgrading how many bytes you recieve per click (Click Upgrades), or by purchasing auto-miners which grant X amount of bytes per second without the user clicking (Auto Upgrades). After purchasing several upgrades, the user may accumulate absurd amounts of bytes up to an absolute max of 1 Hellabyte (1,000<sup>24</sup> bytes).
 
-In the project directory, you can run:
+***Note:*** Hellabyte is heavily inspired by a game called [Cookie Clicker](https://orteil.dashnet.org/cookieclicker/). Click the link to get a better idea of what Hellabyte will look like.
 
-### `npm start`
+MVP's
+ * _Add system which increments points every time a button is pressed._
+ * _Add ability to purchase click and auto upgrades which cost bytes._
+ * _Add stats page with various calculations to contextualize large data sizes (ex: 1 Terabyte is equal to 500 hours of movies)._
+ * _Add basic authorization and authentication so the user can save their progress._
+ * _Add each user's progress to a firebase database._
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Stretch Goals
+ * _Allow points to be accumulated when offline by creating timestamps when logging out and loggin in._
+ * _Implement 'prestige' which completely restarts the game but grants bonuses based on the amount of points gained before restarting._
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Resources
+ * _React/Redux_
+ * _Firebase_
+ * _HTML, CSS_
+ * _Bootstrap_
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+# Progression:
+| Name | Amount | Amount in Bytes |
+| :---: | :---: | :---: |
+Kilobyte | 1024 bytes | 1024^1 bytes
+Megabyte | 1024 kilobytes | 1024^2 bytes
+Gigabyte | 1024 megabytes | 1024^3 bytes
+Terabyte | 1024 gigabytes | 1024^4 bytes
+Petabyte | 1024 terabytes | 1024^5 bytes
+Exabyte  | 1024 petabytes | 1024^6 bytes
+Zettabyte | 1024 exabytes | 1024^7 bytes
+Yottabyte | 1024 zettabytes | 1024^8 bytes
+Ronnabyte | 1024 yottabytes | 1024^9 bytes
+Queccabytes | 1024 ronnabytes | 1024^10 bytes
+Brontobyte | 1024 queccabytes | 1024^11 bytes
+Geobyte | 1024 brontobytes | 1024^12 bytes
+Xonabyte | 1024 geobytes | 1024^13 bytes
+Wekabyte | 1024 xonabytes | 1024^14 bytes
+Aurabyte | 1024 wekabytes | 1024^15 bytes
+Coperbyte | 1024 aurabytes | 1024^16 bytes
+Lizzabyte | 1024 coperbytes | 1024^17 bytes
+Dexabyte | 1024 lizzabytes | 1024^18 bytes
+Fentabyte | 1024 dexabytes | 1024^19 bytes
+Jobibyte | 1024 fentabytes | 1024^20 bytes
+Paulabyte | 1024 jobibytes | 1024^21 bytes
+Sentabyte | 1024 paulabytes | 1024^22 bytes
+Antibyte | 1024 sentabytes | 1024^23 bytes
+Hellabyte | 1024 antibytes | 1024^24 bytes
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+<hr/>
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Important Numbers
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+ * _The entire internets data = 51,946,031,311,566,097,350,656 bytes (44 zettabytes)_
+ * _Volume of a CD - 13,359.624 cubic mm_
+ * _Density required for a black hole - 200,000,000,000,000,000 kg per cubic mm_
+ * ***A standard sized cd with 200 brontobytes of data is dense enough to collapse upon itself and create a black hole***
 
-### `npm run eject`
+## Stats
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+**Byte**: text file that says 'hello world' is 11 bytes
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+**Kilobyte**: declaration of independence in a text file is 8 KB
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+**Megabyte**: every work of shakespeare in plain text is about 5 MB
 
-## Learn More
+**Gigabyte**: a AAA game title is at least 25 GB
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+**Terabyte**: 1 TB is about 500 hours of movies
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+**Petabyte**: 2 PB is all US academic research libraries
 
-### Code Splitting
+**Exabyte**: 5 EB is a text file of all words ever spoken by humans
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+**Zettabyte**: 44 ZB is the all the entire internet's data in 2020
 
-### Analyzing the Bundle Size
+**Yottabyte**: 25 YB is the combined storage capacity of the brain of every human that has ever lived
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+------
+**Coperbyte**: If 1 byte = 1 atom, the entire earth is about 91 CB
 
-### Making a Progressive Web App
+**Sentabyte**: 14 SB is as many bytes as atoms in the Milky Way galaxy
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+## Component Relationship Diagram
 
-### Advanced Configuration
+![Component Relationships](relationships.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## Component Layout
 
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+![Component Layout](components-layout.png)
