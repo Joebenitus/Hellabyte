@@ -1,5 +1,6 @@
 import React from 'react';
-import MainController from './components/MainController'
+import MainController from './components/MainController';
+import { Container } from 'react-bootstrap';
 
 function App() {
   return (

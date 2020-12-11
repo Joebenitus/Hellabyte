@@ -5,12 +5,13 @@ function BytesPanel(props) {
   return (
     <React.Fragment>
       <h2>{props.bytes} {props.bytesMeasurement}</h2>
+      <p>{props.bytesPerClick} per click</p>
     </React.Fragment>
   )
 }
 
 BytesPanel.propTypes = {
-  bytes: PropTypes.func,
+  bytes: PropTypes.string,
   mineBytes: PropTypes.func,
 }
 
