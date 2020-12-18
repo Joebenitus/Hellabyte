@@ -16,8 +16,8 @@ class MainController extends React.Component {
   }
 
   handleMiningBytes = () => {
-    const { dispatch } = this.props;
-    const action = a.mineBytes(this.props.bytesPerClick);
+    const { dispatch, byteCount, bytesPerClick } = this.props;
+    const action = a.mineBytes(byteCount, bytesPerClick);
     dispatch(action);
   }
 
