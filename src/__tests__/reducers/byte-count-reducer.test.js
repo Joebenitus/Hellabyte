@@ -25,9 +25,7 @@ describe('byteCountReducer', () => {
       id
     };
     expect(byteCountReducer({}, action)).toEqual({
-      [id]: {
-        byteCount: byteCount + bytesPerClick
-      }
+      byteCount: byteCount + bytesPerClick
     });
   });
   test('Should successfully multiply the current bytesPerClick by 2', () => {
@@ -40,9 +38,7 @@ describe('byteCountReducer', () => {
       id
     };
     expect(byteCountReducer({}, action)).toEqual({
-      [id]: {
-        bytesPerClick: bytesPerClick * 2
-      }
+      bytesPerClick: bytesPerClick * 2
     });
   });
 
@@ -56,9 +52,7 @@ describe('byteCountReducer', () => {
       id
     };
     expect(byteCountReducer({}, action)).toEqual({
-      [id]: {
-        bytesPerSecond: bytesPerSecond + 1
-      }
+      bytesPerSecond: bytesPerSecond + 1
     });
   });
 });

@@ -4,7 +4,7 @@ import * as c from './../../actions/ActionTypes';
 describe('byte count reducer actions', () => {
   it('mineBytes should create MINE_BYTES action', () => {
     expect(actions.mineBytes()).toEqual({
-      type: c.MINE_BYTES,
+      type: c.MINE_BYTES
     });
   });
 

@@ -1,25 +1,25 @@
 import * as c from './../actions/ActionTypes';
 
-export default (state={}, action) => {
-  const { byteCount, bytesPerClick, bytesPerSecond, id } = action;
+const defaultState = {
+  byteCount: 0,
+  bytesPerClick: 1,
+  bytesPerSecond: 0
+}
+
+export default (state=defaultState, action) => {
+  const { byteCount, bytesPerClick, bytesPerSecond } = action;
   switch(action.type) {
     case c.MINE_BYTES:
       return Object.assign({}, state, {
-        [id]: {
-          byteCount: byteCount + bytesPerClick
-        }
+        byteCount: byteCount + bytesPerClick
       })
     case c.UPGRADE_BYTES_PER_CLICK:
       return Object.assign({}, state, {
-        [id]: {
-          bytesPerClick: bytesPerClick * 2
-        }
+        bytesPerClick: bytesPerClick * 2
       })
       case c.UPGRADE_BYTES_PER_SEC:
         return Object.assign({}, state, {
-          [id]: {
-            bytesPerSecond: bytesPerSecond + 1
-          }
+          bytesPerSecond: bytesPerSecond + 1
         })
     default:
       return state;

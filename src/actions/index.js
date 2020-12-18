@@ -1,16 +1,15 @@
 import * as c from './ActionTypes';
 
-export const mineBytes = (byteCount) => ({
+export const mineBytes = (byteCount, bytesPerClick) => ({
   type: c.MINE_BYTES,
-  byteCount
-});
-
-export const upgradeBytesPerClick = (bytesPerClick) => ({
-  type: c.UPGRADE_BYTES_PER_CLICK,
+  byteCount,
   bytesPerClick
+})
+
+export const upgradeBytesPerClick = () => ({
+  type: c.UPGRADE_BYTES_PER_CLICK
 });
 
-export const upgradeBytesPerSec = (bytesPerSecond) => ({
-  type: c.UPGRADE_BYTES_PER_SEC,
-  bytesPerSecond
+export const upgradeBytesPerSec = () => ({
+  type: c.UPGRADE_BYTES_PER_SEC
 });

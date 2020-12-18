@@ -4,21 +4,21 @@ import BytesPanel from './BytesPanel';
 import OtherInfoPanel from './OtherInfoPanel';
 import TypeUpgradesPanel from './TypeUpgradesPanel';
 import '../App.css'
+import * as a from './../actions'
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 
 class MainController extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = {
-      byteCount: 0,
-      bytesPerClick: 1
-    }
+    console.log(props)
   }
 
   handleMiningBytes = () => {
-    this.setState({
-      byteCount: this.state.byteCount + this.state.bytesPerClick
-    })
+    const { dispatch } = this.props;
+    const action = a.mineBytes(this.props.bytesPerClick);
+    dispatch(action);
   }
 
   handleUpgradingBytesPerClick = () => {
@@ -61,8 +61,9 @@ class MainController extends React.Component {
   }
 
   render() {
-    const byteCountFormatted = this.getByteMetric(this.state.byteCount)
-    const bytesPerClickFormatted = this.getByteMetric(this.state.bytesPerClick)
+    console.log(this.props)
+    const byteCountFormatted = this.getByteMetric(this.props.byteCount)
+    const bytesPerClickFormatted = this.getByteMetric(this.props.bytesPerClick)
     let currentlyVisibleState = 
     <div className='container'>
       <div className='row'>
@@ -95,5 +96,28 @@ class MainController extends React.Component {
     )
   }
 }
+
+MainController.propTypes = {
+  byteCount: PropTypes.number,
+  byteCountFormatted: PropTypes.string,
+  bytesPerClick: PropTypes.number,
+  bytesPerClickFormatted: PropTypes.string,
+  bytesPerSecond: PropTypes.number,
+  bytesPerSecondFormatted: PropTypes.string
+}
+
+const mapStateToProps = state => {
+  return {
+    byteCount: state.byteCount,
+    byteCountFormatted: state.byteCountFormatted,
+    bytesPerClick: state.bytesPerClick,
+    bytesPerClickFormatted: state.bytesPerClickFormatted,
+    bytesPerSecond: state.bytesPerSecond,
+    bytesPerSecondFormatted: state.bytesPerSecondFormatted
+
+  }
+}
+
+MainController = connect(mapStateToProps)(MainController)
 
 export default MainController;
