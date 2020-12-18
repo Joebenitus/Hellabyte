@@ -1,7 +1,9 @@
+import * as c from './../actions/ActionTypes';
+
 export default (state={}, action) => {
   const { byteCount, bytesPerClick, bytesPerSecond, id } = action;
   switch(action.type) {
-    case 'DOWNLOAD_BYTES':
+    case c.MINE_BYTES:
       return Object.assign({}, state, {
         [id]: {
           byteCount: byteCount + bytesPerClick,
@@ -10,7 +12,7 @@ export default (state={}, action) => {
           id
         }
       })
-    case 'UPGRADE_BYTES_PER_CLICK':
+    case c.UPGRADE_BYTES_PER_CLICK:
       return Object.assign({}, state, {
         [id]: {
           byteCount,
@@ -19,7 +21,7 @@ export default (state={}, action) => {
           id
         }
       })
-      case 'UPGRADE_BYTES_PER_SEC':
+      case c.UPGRADE_BYTES_PER_SEC:
         return Object.assign({}, state, {
           [id]: {
             byteCount,

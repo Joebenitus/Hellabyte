@@ -1,4 +1,5 @@
 import byteCountReducer from '../../reducers/byte-count-reducer';
+import * as c from './../../actions/ActionTypes';
 
 describe('byteCountReducer', () => {
 
@@ -17,7 +18,7 @@ describe('byteCountReducer', () => {
   test('Should successfully increment byteCount by bytesPerClick', () => {
     const { byteCount, bytesPerClick, bytesPerSecond, id } = gameData;
     action = {
-      type: 'DOWNLOAD_BYTES',
+      type: c.MINE_BYTES,
       byteCount,
       bytesPerClick,
       bytesPerSecond,
@@ -35,7 +36,7 @@ describe('byteCountReducer', () => {
   test('Should successfully multiply the current bytesPerClick by 2', () => {
     const { byteCount, bytesPerClick, bytesPerSecond, id } = gameData;
     action = {
-      type: 'UPGRADE_BYTES_PER_CLICK',
+      type: c.UPGRADE_BYTES_PER_CLICK,
       byteCount,
       bytesPerClick,
       bytesPerSecond,
@@ -54,7 +55,7 @@ describe('byteCountReducer', () => {
   test('Should successfully increase bytesPerSecond', () => {
     const { byteCount, bytesPerClick, bytesPerSecond, id } = gameData;
     action = {
-      type: 'UPGRADE_BYTES_PER_SEC',
+      type: c.UPGRADE_BYTES_PER_SEC,
       byteCount,
       bytesPerClick,
       bytesPerSecond,
