@@ -22,9 +22,9 @@ class MainController extends React.Component {
   }
 
   handleUpgradingBytesPerClick = () => {
-    this.setState({
-      bytesPerClick: this.state.bytesPerClick * 2
-    })
+    const { dispatch, bytesPerClick } = this.props;
+    const action = a.upgradeBytesPerClick(bytesPerClick);
+    dispatch(action);
   }
 
   getByteMetric = (count) => {
