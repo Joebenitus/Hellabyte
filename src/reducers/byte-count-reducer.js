@@ -6,28 +6,19 @@ export default (state={}, action) => {
     case c.MINE_BYTES:
       return Object.assign({}, state, {
         [id]: {
-          byteCount: byteCount + bytesPerClick,
-          bytesPerClick,
-          bytesPerSecond,
-          id
+          byteCount: byteCount + bytesPerClick
         }
       })
     case c.UPGRADE_BYTES_PER_CLICK:
       return Object.assign({}, state, {
         [id]: {
-          byteCount,
-          bytesPerClick: bytesPerClick * 2,
-          bytesPerSecond,
-          id
+          bytesPerClick: bytesPerClick * 2
         }
       })
       case c.UPGRADE_BYTES_PER_SEC:
         return Object.assign({}, state, {
           [id]: {
-            byteCount,
-            bytesPerClick,
-            bytesPerSecond: bytesPerSecond + 1,
-            id
+            bytesPerSecond: bytesPerSecond + 1
           }
         })
     default:

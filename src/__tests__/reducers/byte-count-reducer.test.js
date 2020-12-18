@@ -26,10 +26,7 @@ describe('byteCountReducer', () => {
     };
     expect(byteCountReducer({}, action)).toEqual({
       [id]: {
-        byteCount: byteCount + bytesPerClick,
-        bytesPerClick,
-        bytesPerSecond,
-        id
+        byteCount: byteCount + bytesPerClick
       }
     });
   });
@@ -44,10 +41,7 @@ describe('byteCountReducer', () => {
     };
     expect(byteCountReducer({}, action)).toEqual({
       [id]: {
-        byteCount,
-        bytesPerClick: bytesPerClick * 2,
-        bytesPerSecond,
-        id
+        bytesPerClick: bytesPerClick * 2
       }
     });
   });
@@ -63,10 +57,7 @@ describe('byteCountReducer', () => {
     };
     expect(byteCountReducer({}, action)).toEqual({
       [id]: {
-        byteCount,
-        bytesPerClick,
-        bytesPerSecond: bytesPerSecond + 1,
-        id
+        bytesPerSecond: bytesPerSecond + 1
       }
     });
   });
