@@ -1,5 +1,6 @@
 import byteCountReducer from '../../reducers/byte-count-reducer';
 import * as c from './../../actions/ActionTypes';
+import { getByteMetric } from './../../components/GetByteMetric';
 
 describe('byteCountReducer', () => {
 
@@ -21,11 +22,11 @@ describe('byteCountReducer', () => {
       type: c.MINE_BYTES,
       byteCount,
       bytesPerClick,
-      bytesPerSecond,
-      id
+      bytesPerSecond
     };
     expect(byteCountReducer({}, action)).toEqual({
-      byteCount: byteCount + bytesPerClick
+      byteCount: byteCount + bytesPerClick,
+      byteCountFormatted: getByteMetric(byteCount + bytesPerClick)
     });
   });
   test('Should successfully multiply the current bytesPerClick by 2', () => {
@@ -38,7 +39,8 @@ describe('byteCountReducer', () => {
       id
     };
     expect(byteCountReducer({}, action)).toEqual({
-      bytesPerClick: bytesPerClick * 2
+      bytesPerClick: bytesPerClick * 2,
+      bytesPerClickFormatted: getByteMetric(bytesPerClick * 2)
     });
   });
 
