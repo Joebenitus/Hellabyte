@@ -7,6 +7,7 @@ import '../App.css'
 import * as a from './../actions'
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { getByteMetric } from './GetByteMetric';
 
 class MainController extends React.Component {
 
@@ -16,7 +17,10 @@ class MainController extends React.Component {
   }
 
   componentDidMount() {
-    
+    setInterval(() => {
+      const { dispatch, byteCount, bytesPerSecond } = this.props;
+      dispatch(a.incrementBytesByBPS(byteCount, bytesPerSecond))
+    }, 1000)
   }
 
   handleMiningBytes = () => {
@@ -78,7 +82,8 @@ MainController.propTypes = {
   bytesPerClick: PropTypes.number,
   bytesPerClickFormatted: PropTypes.string,
   bytesPerSecond: PropTypes.number,
-  bytesPerSecondFormatted: PropTypes.string
+  bytesPerSecondFormatted: PropTypes.string,
+  gameInterval: PropTypes.func
 }
 
 const mapStateToProps = state => {
@@ -88,8 +93,8 @@ const mapStateToProps = state => {
     bytesPerClick: state.bytesPerClick,
     bytesPerClickFormatted: state.bytesPerClickFormatted,
     bytesPerSecond: state.bytesPerSecond,
-    bytesPerSecondFormatted: state.bytesPerSecondFormatted
-
+    bytesPerSecondFormatted: state.bytesPerSecondFormatted,
+    gameInterval: state.gameInterval
   }
 }
 

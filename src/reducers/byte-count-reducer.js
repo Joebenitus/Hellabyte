@@ -7,7 +7,7 @@ const defaultState = {
   bytesPerClick: 1,
   bytesPerClickFormatted: '1 Bytes',
   bytesPerSecond: 0,
-  bytesPerSecondFormatted: '0 Bytes'
+  bytesPerSecondFormatted: '0 Bytes',
 }
 
 export default (state=defaultState, action) => {
@@ -23,14 +23,15 @@ export default (state=defaultState, action) => {
         bytesPerClick: bytesPerClick * 2,
         bytesPerClickFormatted: getByteMetric(bytesPerClick * 2)
       })
-      case c.UPGRADE_BYTES_PER_SEC:
-        return Object.assign({}, state, {
-          bytesPerSecond: bytesPerSecond + 1
-        })
-      case c.INCREMENT_BYTES_BY_BPS:
-        return Object.assign({}, state, {
-          byteCount: byteCount + bytesPerSecond
-        })
+    case c.UPGRADE_BYTES_PER_SEC:
+      return Object.assign({}, state, {
+        bytesPerSecond: bytesPerSecond + 1
+      })
+    case c.INCREMENT_BYTES_BY_BPS:
+      return Object.assign({}, state, {
+        byteCount: byteCount + bytesPerSecond,
+        byteCountFormatted: getByteMetric(byteCount + bytesPerSecond)
+      })
     default:
       return state;
   }

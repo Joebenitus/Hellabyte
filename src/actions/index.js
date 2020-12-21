@@ -17,7 +17,12 @@ export const upgradeBytesPerSecond = (bytesPerSecond) => ({
 });
 
 export const incrementBytesByBPS = (byteCount, bytesPerSecond) => ({
-  type: c.UPGRADE_BYTES_PER_SEC,
+  type: c.INCREMENT_BYTES_BY_BPS,
   byteCount,
   bytesPerSecond
 });
+
+export const updateGameInterval = (gameInterval) => ({
+  type: c.UPDATE_GAME_INTERVAL,
+  gameInterval
+})
