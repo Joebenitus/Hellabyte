@@ -12,7 +12,7 @@ const defaultState = {
 }
 
 export default (state=defaultState, action) => {
-  const { byteCount, bytesPerClick, bytesPerSecond } = action;
+  const { byteCount, bytesPerClick, bytesPerSecond, bytesPerClickUpgradeCost } = action;
   switch(action.type) {
     case c.MINE_BYTES:
       return Object.assign({}, state, {
@@ -22,7 +22,8 @@ export default (state=defaultState, action) => {
     case c.UPGRADE_BYTES_PER_CLICK:
       return Object.assign({}, state, {
         bytesPerClick: bytesPerClick * 2,
-        bytesPerClickFormatted: getByteMetric(bytesPerClick * 2)
+        bytesPerClickFormatted: getByteMetric(bytesPerClick * 2),
+        bytesPerClickUpgradeCost: bytesPerClickUpgradeCost * 2
       })
     case c.UPGRADE_BYTES_PER_SEC:
       return Object.assign({}, state, {

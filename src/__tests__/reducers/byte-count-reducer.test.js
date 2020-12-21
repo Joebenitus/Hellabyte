@@ -8,7 +8,8 @@ describe('byteCountReducer', () => {
   const gameData = {
     byteCount: 100,
     bytesPerClick: 8,
-    bytesPerSecond: 2
+    bytesPerSecond: 2,
+    bytesPerClickUpgradeCost: 1000
   };
 
   test('Should return default state if no action type is passed', () => {
@@ -29,16 +30,18 @@ describe('byteCountReducer', () => {
     });
   });
   test('Should successfully multiply the current bytesPerClick by 2', () => {
-    const { byteCount, bytesPerClick, bytesPerSecond } = gameData;
+    const { byteCount, bytesPerClick, bytesPerSecond, bytesPerClickUpgradeCost } = gameData;
     action = {
       type: c.UPGRADE_BYTES_PER_CLICK,
       byteCount,
       bytesPerClick,
-      bytesPerSecond
+      bytesPerSecond,
+      bytesPerClickUpgradeCost
     };
     expect(byteCountReducer({}, action)).toEqual({
       bytesPerClick: bytesPerClick * 2,
-      bytesPerClickFormatted: getByteMetric(bytesPerClick * 2)
+      bytesPerClickFormatted: getByteMetric(bytesPerClick * 2),
+      bytesPerClickUpgradeCost: bytesPerClickUpgradeCost * 2
     });
   });
 
