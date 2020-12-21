@@ -8,6 +8,7 @@ const defaultState = {
   bytesPerClickFormatted: '1 Bytes',
   bytesPerSecond: 0,
   bytesPerSecondFormatted: '0 Bytes',
+  bytesPerClickUpgradeCost: 1000
 }
 
 export default (state=defaultState, action) => {

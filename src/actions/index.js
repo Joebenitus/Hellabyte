@@ -6,9 +6,10 @@ export const mineBytes = (byteCount, bytesPerClick) => ({
   bytesPerClick
 })
 
-export const upgradeBytesPerClick = (bytesPerClick) => ({
+export const upgradeBytesPerClick = (bytesPerClick, bytesPerClickUpgradeCost) => ({
   type: c.UPGRADE_BYTES_PER_CLICK,
-  bytesPerClick
+  bytesPerClick,
+  bytesPerClickUpgradeCost
 });
 
 export const upgradeBytesPerSecond = (bytesPerSecond) => ({

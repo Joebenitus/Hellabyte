@@ -13,7 +13,6 @@ class MainController extends React.Component {
 
   constructor(props) {
     super(props);
-    console.log(props)
   }
 
   componentDidMount() {
@@ -49,12 +48,13 @@ class MainController extends React.Component {
           <div className='card'>
             <BytesPanel bytes={this.props.byteCountFormatted} bytesPerClick={this.props.bytesPerClickFormatted}/>
             <button onClick = {this.handleMiningBytes}>Mine Bytes</button>
-            <button onClick = {this.handleUpgradingBytesPerClick}>Upgrade</button>
+          </div>
+        </div>
+        <div className='col-md-4 align-center h-70'>
+          <div className='card'>
+            <TypeUpgradesPanel onClickHandler={this.handleUpgradingBytesPerClick} cost={getByteMetric(this.props.bytesPerClickUpgradeCost)}/>
           </div>
           
-        </div>
-        <div className='col-md-4 align-center'>
-          <TypeUpgradesPanel/>
         </div>
       </div>
       <div className='row'>
@@ -83,7 +83,7 @@ MainController.propTypes = {
   bytesPerClickFormatted: PropTypes.string,
   bytesPerSecond: PropTypes.number,
   bytesPerSecondFormatted: PropTypes.string,
-  gameInterval: PropTypes.func
+  bytesPerClickUpgradeCost: PropTypes.number
 }
 
 const mapStateToProps = state => {
@@ -94,7 +94,7 @@ const mapStateToProps = state => {
     bytesPerClickFormatted: state.bytesPerClickFormatted,
     bytesPerSecond: state.bytesPerSecond,
     bytesPerSecondFormatted: state.bytesPerSecondFormatted,
-    gameInterval: state.gameInterval
+    bytesPerClickUpgradeCost: state.bytesPerClickUpgradeCost
   }
 }
 
