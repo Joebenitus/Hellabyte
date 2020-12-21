@@ -15,7 +15,7 @@ describe('byte count reducer actions', () => {
   });
 
   it('upgradeBytesPerSec should create UPGRADE_BYTES_PER_SEC action', () => {
-    expect(actions.upgradeBytesPerSec()).toEqual({
+    expect(actions.upgradeBytesPerSecond()).toEqual({
       type: c.UPGRADE_BYTES_PER_SEC,
     });
   });

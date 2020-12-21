@@ -15,6 +15,10 @@ class MainController extends React.Component {
     console.log(props)
   }
 
+  componentDidMount() {
+    
+  }
+
   handleMiningBytes = () => {
     const { dispatch, byteCount, bytesPerClick } = this.props;
     const action = a.mineBytes(byteCount, bytesPerClick);
@@ -24,6 +28,12 @@ class MainController extends React.Component {
   handleUpgradingBytesPerClick = () => {
     const { dispatch, bytesPerClick } = this.props;
     const action = a.upgradeBytesPerClick(bytesPerClick);
+    dispatch(action);
+  }
+
+  handleUpgradingBytesPerSecond = () => {
+    const { dispatch, bytesPerSecond } = this.props;
+    const action = a.upgradeBytesPerSecond(bytesPerSecond);
     dispatch(action);
   }
 
@@ -49,6 +59,7 @@ class MainController extends React.Component {
         </div>
         <div className='col-md-4 align-center'>
           <AutoUpgradesPanel/>
+          <button onClick = {this.handleUpgradingBytesPerSecond}>Byte Counter</button>
         </div>
       </div>
     </div>

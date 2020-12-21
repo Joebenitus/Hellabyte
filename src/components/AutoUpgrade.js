@@ -1,6 +1,6 @@
 import React from 'react';
 
-function AutoUpgradesPanel(props) {
+function AutoUpgrade(props) {
   return (
     <h2>Auto Upgrades</h2>
   )

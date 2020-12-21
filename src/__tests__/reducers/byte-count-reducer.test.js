@@ -8,7 +8,7 @@ describe('byteCountReducer', () => {
   const gameData = {
     byteCount: 100,
     bytesPerClick: 8,
-    bytesPerSecond: 0,
+    bytesPerSecond: 2,
     id: 1
   };
 
@@ -17,7 +17,7 @@ describe('byteCountReducer', () => {
   });
 
   test('Should successfully increment byteCount by bytesPerClick', () => {
-    const { byteCount, bytesPerClick, bytesPerSecond, id } = gameData;
+    const { byteCount, bytesPerClick, bytesPerSecond } = gameData;
     action = {
       type: c.MINE_BYTES,
       byteCount,
@@ -55,6 +55,19 @@ describe('byteCountReducer', () => {
     };
     expect(byteCountReducer({}, action)).toEqual({
       bytesPerSecond: bytesPerSecond + 1
+    });
+  });
+
+  test('Should successfully increment byteCount by bytesPerSecond', () => {
+    const { byteCount, bytesPerClick, bytesPerSecond } = gameData;
+    action = {
+      type: c.INCREMENT_BYTES_BY_BPS,
+      byteCount,
+      bytesPerClick,
+      bytesPerSecond
+    };
+    expect(byteCountReducer({}, action)).toEqual({
+      byteCount: byteCount + bytesPerSecond
     });
   });
 });
