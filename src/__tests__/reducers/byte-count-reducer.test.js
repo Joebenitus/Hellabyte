@@ -39,6 +39,7 @@ describe('byteCountReducer', () => {
       bytesPerClickUpgradeCost
     };
     expect(byteCountReducer({}, action)).toEqual({
+      byteCount: byteCount - bytesPerClickUpgradeCost,
       bytesPerClick: bytesPerClick * 2,
       bytesPerClickFormatted: getByteMetric(bytesPerClick * 2),
       bytesPerClickUpgradeCost: bytesPerClickUpgradeCost * 2

@@ -29,9 +29,13 @@ class MainController extends React.Component {
   }
 
   handleUpgradingBytesPerClick = () => {
-    const { dispatch, bytesPerClick } = this.props;
-    const action = a.upgradeBytesPerClick(bytesPerClick);
-    dispatch(action);
+    const { dispatch, byteCount, bytesPerClick, bytesPerClickUpgradeCost } = this.props;
+    const action = a.upgradeBytesPerClick(bytesPerClick, bytesPerClickUpgradeCost);
+    if (byteCount >= bytesPerClickUpgradeCost) {
+      dispatch(action);
+    } else {
+      console.log('Not Enough Bytes!')
+    }
   }
 
   handleUpgradingBytesPerSecond = () => {
@@ -44,19 +48,19 @@ class MainController extends React.Component {
     let currentlyVisibleState = 
     <>
       <div className='row'>
-        <div className='col-md-8 align-center h-70'>
+        <div className='col-md-6 align-center h-70'>
           <BytesPanel bytes={this.props.byteCountFormatted} bytesPerClick={this.props.bytesPerClickFormatted}/>
           <button onClick = {this.handleMiningBytes}>Mine Bytes</button>
         </div>
-        <div className='col-md-4 align-center h-70'>
+        <div className='col-md-6 align-center h-70'>
           <TypeUpgradesPanel onClickHandler={this.handleUpgradingBytesPerClick} cost={getByteMetric(this.props.bytesPerClickUpgradeCost)}/>
         </div>
       </div>
       <div className='row'>
-        <div className='col-md-8 align-center'>
+        <div className='col-md-6 align-center'>
           <OtherInfoPanel/>
         </div>
-        <div className='col-md-4 align-center'>
+        <div className='col-md-6 align-center'>
           <AutoUpgradesPanel/>
           <button onClick = {this.handleUpgradingBytesPerSecond}>Byte Counter</button>
         </div>
