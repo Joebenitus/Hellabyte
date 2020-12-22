@@ -3,11 +3,11 @@ import AutoUpgradesPanel from './AutoUpgradesPanel';
 import BytesPanel from './BytesPanel';
 import OtherInfoPanel from './OtherInfoPanel';
 import TypeUpgradesPanel from './TypeUpgradesPanel';
-import '../App.css'
 import * as a from './../actions'
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { getByteMetric } from './GetByteMetric';
+import './../App.scss'
 
 class MainController extends React.Component {
 
@@ -42,19 +42,14 @@ class MainController extends React.Component {
 
   render() {
     let currentlyVisibleState = 
-    <div className='container'>
+    <>
       <div className='row'>
         <div className='col-md-8 align-center h-70'>
-          <div className='card'>
-            <BytesPanel bytes={this.props.byteCountFormatted} bytesPerClick={this.props.bytesPerClickFormatted}/>
-            <button onClick = {this.handleMiningBytes}>Mine Bytes</button>
-          </div>
+          <BytesPanel bytes={this.props.byteCountFormatted} bytesPerClick={this.props.bytesPerClickFormatted}/>
+          <button onClick = {this.handleMiningBytes}>Mine Bytes</button>
         </div>
         <div className='col-md-4 align-center h-70'>
-          <div className='card'>
-            <TypeUpgradesPanel onClickHandler={this.handleUpgradingBytesPerClick} cost={getByteMetric(this.props.bytesPerClickUpgradeCost)}/>
-          </div>
-          
+          <TypeUpgradesPanel onClickHandler={this.handleUpgradingBytesPerClick} cost={getByteMetric(this.props.bytesPerClickUpgradeCost)}/>
         </div>
       </div>
       <div className='row'>
@@ -66,8 +61,7 @@ class MainController extends React.Component {
           <button onClick = {this.handleUpgradingBytesPerSecond}>Byte Counter</button>
         </div>
       </div>
-    </div>
-
+    </>
     return (
       <React.Fragment>
         {currentlyVisibleState}
