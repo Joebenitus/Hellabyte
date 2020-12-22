@@ -30,7 +30,7 @@ class MainController extends React.Component {
 
   handleUpgradingBytesPerClick = () => {
     const { dispatch, byteCount, bytesPerClick, bytesPerClickUpgradeCost } = this.props;
-    const action = a.upgradeBytesPerClick(bytesPerClick, bytesPerClickUpgradeCost);
+    const action = a.upgradeBytesPerClick(byteCount, bytesPerClick, bytesPerClickUpgradeCost);
     if (byteCount >= bytesPerClickUpgradeCost) {
       dispatch(action);
     } else {
