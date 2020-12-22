@@ -1,7 +1,7 @@
 body {
   background-color: black;
   background-image: radial-gradient(
-    rgba(0, 150, 0, 0.75), black 120%
+    rgba(22, 133, 0, 0.75), black 120%
   );
   height: 100vh;
   &::after {
@@ -32,7 +32,7 @@ pre {
 body, h1, h2, h3, h4, h5, h6, p {
   margin: 0;
   overflow: hidden;
-  padding: 2rem;
+  padding: 5px;
   color: white;
   font: 1.3rem Inconsolata, monospace;
   text-shadow: 0 0 5px #C8C8C8;
