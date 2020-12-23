@@ -62,7 +62,7 @@ class MainController extends React.Component {
         </div>
         <div className='col-md-6 align-center'>
           <AutoUpgradesPanel/>
-          <button onClick = {this.handleUpgradingBytesPerSecond}>Byte Counter</button>
+          <button onClick = {this.handleUpgradingBytesPerSecond}>Upgrade</button>
         </div>
       </div>
     </>
