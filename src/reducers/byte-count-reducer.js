@@ -31,6 +31,7 @@ export default (state=defaultState, action) => {
       
     case c.UPGRADE_BYTES_PER_SEC:
       return Object.assign({}, state, {
+        byteCount: byteCount - 15,
         bytesPerSecond: bytesPerSecond + 1
       })
     case c.INCREMENT_BYTES_BY_BPS:

@@ -39,8 +39,8 @@ class MainController extends React.Component {
   }
 
   handleUpgradingBytesPerSecond = () => {
-    const { dispatch, bytesPerSecond } = this.props;
-    const action = a.upgradeBytesPerSecond(bytesPerSecond);
+    const { dispatch, byteCount, bytesPerSecond } = this.props;
+    const action = a.upgradeBytesPerSecond(byteCount, bytesPerSecond);
     dispatch(action);
   }
 
