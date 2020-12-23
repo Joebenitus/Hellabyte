@@ -1,5 +1,6 @@
 import * as c from './../actions/ActionTypes';
 import { getByteMetric } from './../components/GetByteMetric';
+import { AutoUpgradeList } from './../components/AutoUpgradeList';
 
 const defaultState = {
   byteCount: 0,
@@ -8,7 +9,8 @@ const defaultState = {
   bytesPerClickFormatted: '1 Bytes',
   bytesPerSecond: 0,
   bytesPerSecondFormatted: '0 Bytes',
-  bytesPerClickUpgradeCost: 1000
+  bytesPerClickUpgradeCost: 1000,
+  autoUpgrades: AutoUpgradeList
 }
 
 export default (state=defaultState, action) => {
