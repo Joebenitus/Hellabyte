@@ -2,6 +2,8 @@
 
 **Hellabyte will be my final capstone project for the code bootcamp *Epicodus***
 
+Live site: https://hellabyte-e404f.firebaseapp.com/
+
 Hellabyte is a clicker game in which the goal is to collect as many bytes of data as possible. The game begins with the user accumulating 1 byte of data every time they click the 'download bytes' button. Bytes can be used as currency to purchase upgrades which increase your production speed. This happens either via upgrading how many bytes you recieve per click (Click Upgrades), or by purchasing auto-miners which grant X amount of bytes per second without the user clicking (Auto Upgrades). After purchasing several upgrades, the user may accumulate absurd amounts of bytes up to an absolute max of 1 Hellabyte (1,024<sup>24</sup> bytes).
 
 ***Note:*** Hellabyte is heavily inspired by a game called [Cookie Clicker](https://orteil.dashnet.org/cookieclicker/). Click the link to get a better idea of what Hellabyte will look like.
