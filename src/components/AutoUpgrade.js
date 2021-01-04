@@ -16,6 +16,7 @@ function AutoUpgrade(props) {
   return (
     <ComponentStyleWrapper>
       <h4>{props.name}</h4>
+      <StyledP>Owned: {props.owned}</StyledP>
       <StyledP>+{props.bytesPerSecond} per second</StyledP>
       <StyledP className='clickable' onClick={props.onClickHandler}>Cost: {props.cost}</StyledP>
     </ComponentStyleWrapper>
@@ -24,7 +25,7 @@ function AutoUpgrade(props) {
 
 AutoUpgrade.propTypes = {
   name: PropTypes.string,
-  bytesPerSecond: PropTypes.number,
+  bytesPerSecond: PropTypes.string  ,
   cost: PropTypes.number,
   description: PropTypes.string,
   owned: PropTypes.number,

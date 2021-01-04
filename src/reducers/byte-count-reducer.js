@@ -28,7 +28,6 @@ export default (state=defaultState, action) => {
         bytesPerClickFormatted: getByteMetric(bytesPerClick * 2),
         bytesPerClickUpgradeCost: bytesPerClickUpgradeCost * 2
       })
-      
     case c.UPGRADE_BYTES_PER_SEC:
       return Object.assign({}, state, {
         byteCount: byteCount - 15,

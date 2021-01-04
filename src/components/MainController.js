@@ -80,7 +80,8 @@ MainController.propTypes = {
   bytesPerClickFormatted: PropTypes.string,
   bytesPerSecond: PropTypes.number,
   bytesPerSecondFormatted: PropTypes.string,
-  bytesPerClickUpgradeCost: PropTypes.number
+  bytesPerClickUpgradeCost: PropTypes.number,
+  autoUpgrades: PropTypes.object
 }
 
 const mapStateToProps = state => {
@@ -91,7 +92,8 @@ const mapStateToProps = state => {
     bytesPerClickFormatted: state.bytesPerClickFormatted,
     bytesPerSecond: state.bytesPerSecond,
     bytesPerSecondFormatted: state.bytesPerSecondFormatted,
-    bytesPerClickUpgradeCost: state.bytesPerClickUpgradeCost
+    bytesPerClickUpgradeCost: state.bytesPerClickUpgradeCost,
+    autoUpgrades: state.autoUpgrades
   }
 }
 
