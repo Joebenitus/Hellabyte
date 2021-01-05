@@ -55,11 +55,15 @@ describe('byteCountReducer', () => {
       type: c.UPGRADE_BYTES_PER_SEC,
       byteCount,
       bytesPerClick,
-      bytesPerSecond
+      bytesPerSecond,
+      autoUpgrades
     };
     expect(byteCountReducer({}, action)).toEqual({
       byteCount: byteCount - cost,
-      bytesPerSecond: bytesPerSecond + 1
+      bytesPerSecond: bytesPerSecond + 1,
+      autoUpgrades: {
+        1: {...autoUpgrades[1], owned: autoUpgrades[1].owned + 1}
+      }
     });
   });
 

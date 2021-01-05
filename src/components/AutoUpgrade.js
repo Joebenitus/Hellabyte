@@ -25,10 +25,11 @@ function AutoUpgrade(props) {
 
 AutoUpgrade.propTypes = {
   name: PropTypes.string,
-  bytesPerSecond: PropTypes.string  ,
+  bytesPerSecond: PropTypes.string,
   cost: PropTypes.number,
   description: PropTypes.string,
   owned: PropTypes.number,
+  index: PropTypes.number,
   onClickHandler: PropTypes.func
 }
 

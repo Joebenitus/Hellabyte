@@ -8,6 +8,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { getByteMetric } from './GetByteMetric';
 import './../App.scss'
+import { playSoundMineBytes, playSoundBuyUpgrade } from './GameSounds';
 
 class MainController extends React.Component {
 
@@ -25,6 +26,7 @@ class MainController extends React.Component {
   handleMiningBytes = () => {
     const { dispatch, byteCount, bytesPerClick } = this.props;
     const action = a.mineBytes(byteCount, bytesPerClick);
+    playSoundMineBytes()
     dispatch(action);
   }
 
@@ -32,6 +34,7 @@ class MainController extends React.Component {
     const { dispatch, byteCount, bytesPerClick, bytesPerClickUpgradeCost } = this.props;
     const action = a.upgradeBytesPerClick(byteCount, bytesPerClick, bytesPerClickUpgradeCost);
     if (byteCount >= bytesPerClickUpgradeCost) {
+      playSoundBuyUpgrade()
       dispatch(action);
     } else {
       console.log('Not Enough Bytes!')
@@ -39,9 +42,12 @@ class MainController extends React.Component {
   }
 
   handleUpgradingBytesPerSecond = () => {
-    const { dispatch, byteCount, bytesPerSecond } = this.props;
-    const action = a.upgradeBytesPerSecond(byteCount, bytesPerSecond);
-    dispatch(action);
+    const { dispatch, byteCount, bytesPerSecond, autoUpgrades } = this.props;
+    if (byteCount >= autoUpgrades[1].cost) {
+      const action = a.upgradeBytesPerSecond(byteCount, bytesPerSecond, autoUpgrades);
+      playSoundBuyUpgrade()
+      dispatch(action);
+    }
   }
 
   render() {
@@ -61,7 +67,7 @@ class MainController extends React.Component {
           <OtherInfoPanel/>
         </div>
         <div className='col-md-6 align-center'>
-          <AutoUpgradesPanel onClickHandler={this.handleUpgradingBytesPerSecond}/>
+          <AutoUpgradesPanel onClickHandler={this.handleUpgradingBytesPerSecond} autoUpgrades={this.props.autoUpgrades}/>
         </div>
       </div>
     </>

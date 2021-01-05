@@ -13,10 +13,11 @@ export const upgradeBytesPerClick = (byteCount, bytesPerClick, bytesPerClickUpgr
   bytesPerClickUpgradeCost
 });
 
-export const upgradeBytesPerSecond = (byteCount, bytesPerSecond) => ({
+export const upgradeBytesPerSecond = (byteCount, bytesPerSecond, autoUpgrades) => ({
   type: c.UPGRADE_BYTES_PER_SEC,
   byteCount,
-  bytesPerSecond
+  bytesPerSecond,
+  autoUpgrades
 });
 
 export const incrementBytesByBPS = (byteCount, bytesPerSecond) => ({
