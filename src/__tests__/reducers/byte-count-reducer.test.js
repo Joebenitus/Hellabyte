@@ -62,7 +62,7 @@ describe('byteCountReducer', () => {
       byteCount: byteCount - cost,
       bytesPerSecond: bytesPerSecond + 1,
       autoUpgrades: {
-        1: {...autoUpgrades[1], owned: autoUpgrades[1].owned + 1}
+        1: {...autoUpgrades[1], owned: autoUpgrades[1].owned + 1, cost: Math.floor(autoUpgrades[1].cost * 1.3)}
       }
     });
   });
