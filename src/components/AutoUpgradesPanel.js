@@ -1,16 +1,17 @@
 import React from 'react';
 import AutoUpgrade from './AutoUpgrade';
 import PropTypes from 'prop-types';
-import { getByteMetric } from './GetByteMetric'
+import { getByteMetric } from './GetByteMetric';
 
 function AutoUpgradesPanel(props) {
-  const { name, bytesPerSecond, cost, owned, index } = props.autoUpgrades[1];
+  const { autoUpgrades } = props;
+
   return (
     <>
       <h2>Auto Upgrades</h2>
-      <AutoUpgrade name={name} bytesPerSecond={getByteMetric(bytesPerSecond)} cost={getByteMetric(cost)} owned={owned} index={1} onClickHandler={props.onClickHandler}/>
-      <AutoUpgrade name='Online Volunteer' bytesPerSecond='5 bytes' cost={100} onClickHandler={props.onClickHandler}/>
-      <AutoUpgrade name='Intern' bytesPerSecond='20 bytes' cost={350} onClickHandler={props.onClickHandler}/>
+      <AutoUpgrade name={autoUpgrades[1].name} bytesPerSecond={getByteMetric(autoUpgrades[1].bytesPerSecond)} cost={getByteMetric(autoUpgrades[1].cost)} owned={autoUpgrades[1].owned} index={autoUpgrades[1].index} onClickHandler={props.onClickHandler}/>
+      <AutoUpgrade name={autoUpgrades[2].name} bytesPerSecond={getByteMetric(autoUpgrades[2].bytesPerSecond)} cost={getByteMetric(autoUpgrades[2].cost)} owned={autoUpgrades[2].owned} index={autoUpgrades[2].index} onClickHandler={props.onClickHandler}/>
+      <AutoUpgrade name={autoUpgrades[3].name} bytesPerSecond={getByteMetric(autoUpgrades[3].bytesPerSecond)} cost={getByteMetric(autoUpgrades[3].cost)} owned={autoUpgrades[3].owned} index={autoUpgrades[3].index} onClickHandler={props.onClickHandler}/>
     </>
   )
 }

@@ -41,10 +41,10 @@ class MainController extends React.Component {
     }
   }
 
-  handleUpgradingBytesPerSecond = () => {
+  handleUpgradingBytesPerSecond = (index) => {
     const { dispatch, byteCount, bytesPerSecond, autoUpgrades } = this.props;
-    if (byteCount >= autoUpgrades[1].cost) {
-      const action = a.upgradeBytesPerSecond(byteCount, bytesPerSecond, autoUpgrades);
+    if (byteCount >= autoUpgrades[index].cost) {
+      const action = a.upgradeBytesPerSecond(byteCount, bytesPerSecond, autoUpgrades, index);
       playSoundBuyUpgrade()
       dispatch(action);
     }

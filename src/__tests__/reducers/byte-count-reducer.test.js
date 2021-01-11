@@ -50,19 +50,20 @@ describe('byteCountReducer', () => {
 
   test('Should successfully increase bytesPerSecond', () => {
     const { byteCount, bytesPerClick, bytesPerSecond, autoUpgrades } = gameData;
-    const { cost } = autoUpgrades[1]
     action = {
       type: c.UPGRADE_BYTES_PER_SEC,
       byteCount,
       bytesPerClick,
       bytesPerSecond,
-      autoUpgrades
+      autoUpgrades,
+      index: autoUpgrades[1].index
     };
     expect(byteCountReducer({}, action)).toEqual({
-      byteCount: byteCount - cost,
-      bytesPerSecond: bytesPerSecond + 1,
+      byteCount: byteCount - autoUpgrades[action.index].cost,
+      bytesPerSecond: bytesPerSecond + autoUpgrades[action.index].bytesPerSecond,
       autoUpgrades: {
-        1: {...autoUpgrades[1], owned: autoUpgrades[1].owned + 1, cost: Math.floor(autoUpgrades[1].cost * 1.3)}
+        ...autoUpgrades,
+        [action.index]: {...autoUpgrades[action.index], owned: autoUpgrades[action.index].owned + 1, cost: Math.floor(autoUpgrades[action.index].cost * 1.3)}
       }
     });
   });

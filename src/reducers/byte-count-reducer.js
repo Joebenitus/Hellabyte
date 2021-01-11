@@ -14,7 +14,7 @@ const defaultState = {
 }
 
 export default (state=defaultState, action) => {
-  const { byteCount, bytesPerClick, bytesPerSecond, bytesPerClickUpgradeCost, autoUpgrades } = action;
+  const { byteCount, bytesPerClick, bytesPerSecond, bytesPerClickUpgradeCost, autoUpgrades, index } = action;
   switch(action.type) {
     case c.MINE_BYTES:
       return Object.assign({}, state, {
@@ -30,10 +30,11 @@ export default (state=defaultState, action) => {
       })
     case c.UPGRADE_BYTES_PER_SEC:
       return Object.assign({}, state, {
-        byteCount: byteCount - autoUpgrades[1].cost,
-        bytesPerSecond: bytesPerSecond + 1,
+        byteCount: byteCount - autoUpgrades[index].cost,
+        bytesPerSecond: bytesPerSecond + autoUpgrades[index].bytesPerSecond,
         autoUpgrades: {
-          1: {...autoUpgrades[1], owned: autoUpgrades[1].owned + 1, cost: Math.floor(autoUpgrades[1].cost * 1.3)}
+          ...autoUpgrades,
+          [index]: {...autoUpgrades[index], owned: autoUpgrades[index].owned + 1, cost: Math.floor(autoUpgrades[index].cost * 1.3)}
         }
       })
     case c.INCREMENT_BYTES_BY_BPS:

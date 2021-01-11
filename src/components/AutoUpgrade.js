@@ -13,12 +13,15 @@ const ComponentStyleWrapper = styled.section`
 `
 
 function AutoUpgrade(props) {
+
+  const { onClickHandler, index } = props;
+
   return (
     <ComponentStyleWrapper>
       <h4>{props.name}</h4>
       <StyledP>Owned: {props.owned}</StyledP>
       <StyledP>+{props.bytesPerSecond} per second</StyledP>
-      <StyledP className='clickable' onClick={props.onClickHandler}>Cost: {props.cost}</StyledP>
+      <StyledP className='clickable' onClick={() => onClickHandler(index)}>Cost: {props.cost}</StyledP>
     </ComponentStyleWrapper>
   )
 }
