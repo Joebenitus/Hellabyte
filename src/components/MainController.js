@@ -56,7 +56,7 @@ class MainController extends React.Component {
       <div className='row'>
         <div className='col-md-6 align-center h-70'>
           <BytesPanel bytes={this.props.byteCountFormatted} bytesPerClick={this.props.bytesPerClickFormatted}/>
-          <button onClick = {this.handleMiningBytes}>Mine Bytes</button>
+          <button onClick = {this.handleMiningBytes}>Download Bytes</button>
         </div>
         <div className='col-md-6 align-center h-70'>
           <TypeUpgradesPanel onClickHandler={this.handleUpgradingBytesPerClick} cost={getByteMetric(this.props.bytesPerClickUpgradeCost)}/>
