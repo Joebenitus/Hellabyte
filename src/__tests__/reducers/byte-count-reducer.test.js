@@ -1,3 +1,4 @@
+import { AutoUpgradeList } from '../../components/AutoUpgradeList';
 import byteCountReducer from '../../reducers/byte-count-reducer';
 import * as c from './../../actions/ActionTypes';
 import { getByteMetric } from './../../components/GetByteMetric';
@@ -9,7 +10,8 @@ describe('byteCountReducer', () => {
     byteCount: 100,
     bytesPerClick: 8,
     bytesPerSecond: 2,
-    bytesPerClickUpgradeCost: 1000
+    bytesPerClickUpgradeCost: 1000,
+    autoUpgrades: AutoUpgradeList
   };
 
   test('Should return default state if no action type is passed', () => {
@@ -47,15 +49,22 @@ describe('byteCountReducer', () => {
   });
 
   test('Should successfully increase bytesPerSecond', () => {
-    const { byteCount, bytesPerClick, bytesPerSecond } = gameData;
+    const { byteCount, bytesPerClick, bytesPerSecond, autoUpgrades } = gameData;
     action = {
       type: c.UPGRADE_BYTES_PER_SEC,
       byteCount,
       bytesPerClick,
-      bytesPerSecond
+      bytesPerSecond,
+      autoUpgrades,
+      index: autoUpgrades[1].index
     };
     expect(byteCountReducer({}, action)).toEqual({
-      bytesPerSecond: bytesPerSecond + 1
+      byteCount: byteCount - autoUpgrades[action.index].cost,
+      bytesPerSecond: bytesPerSecond + autoUpgrades[action.index].bytesPerSecond,
+      autoUpgrades: {
+        ...autoUpgrades,
+        [action.index]: {...autoUpgrades[action.index], owned: autoUpgrades[action.index].owned + 1, cost: Math.floor(autoUpgrades[action.index].cost * 1.3)}
+      }
     });
   });
 

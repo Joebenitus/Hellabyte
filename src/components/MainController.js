@@ -8,6 +8,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { getByteMetric } from './GetByteMetric';
 import './../App.scss'
+import { playSoundMineBytes, playSoundBuyUpgrade } from './GameSounds';
 
 class MainController extends React.Component {
 
@@ -25,6 +26,7 @@ class MainController extends React.Component {
   handleMiningBytes = () => {
     const { dispatch, byteCount, bytesPerClick } = this.props;
     const action = a.mineBytes(byteCount, bytesPerClick);
+    playSoundMineBytes()
     dispatch(action);
   }
 
@@ -32,16 +34,20 @@ class MainController extends React.Component {
     const { dispatch, byteCount, bytesPerClick, bytesPerClickUpgradeCost } = this.props;
     const action = a.upgradeBytesPerClick(byteCount, bytesPerClick, bytesPerClickUpgradeCost);
     if (byteCount >= bytesPerClickUpgradeCost) {
+      playSoundBuyUpgrade()
       dispatch(action);
     } else {
       console.log('Not Enough Bytes!')
     }
   }
 
-  handleUpgradingBytesPerSecond = () => {
-    const { dispatch, bytesPerSecond } = this.props;
-    const action = a.upgradeBytesPerSecond(bytesPerSecond);
-    dispatch(action);
+  handleUpgradingBytesPerSecond = (index) => {
+    const { dispatch, byteCount, bytesPerSecond, autoUpgrades } = this.props;
+    if (byteCount >= autoUpgrades[index].cost) {
+      const action = a.upgradeBytesPerSecond(byteCount, bytesPerSecond, autoUpgrades, index);
+      playSoundBuyUpgrade()
+      dispatch(action);
+    }
   }
 
   render() {
@@ -50,7 +56,7 @@ class MainController extends React.Component {
       <div className='row'>
         <div className='col-md-6 align-center h-70'>
           <BytesPanel bytes={this.props.byteCountFormatted} bytesPerClick={this.props.bytesPerClickFormatted}/>
-          <button onClick = {this.handleMiningBytes}>Mine Bytes</button>
+          <button onClick = {this.handleMiningBytes}>Download Bytes</button>
         </div>
         <div className='col-md-6 align-center h-70'>
           <TypeUpgradesPanel onClickHandler={this.handleUpgradingBytesPerClick} cost={getByteMetric(this.props.bytesPerClickUpgradeCost)}/>
@@ -61,8 +67,7 @@ class MainController extends React.Component {
           <OtherInfoPanel/>
         </div>
         <div className='col-md-6 align-center'>
-          <AutoUpgradesPanel/>
-          <button onClick = {this.handleUpgradingBytesPerSecond}>Upgrade</button>
+          <AutoUpgradesPanel onClickHandler={this.handleUpgradingBytesPerSecond} autoUpgrades={this.props.autoUpgrades}/>
         </div>
       </div>
     </>
@@ -81,7 +86,8 @@ MainController.propTypes = {
   bytesPerClickFormatted: PropTypes.string,
   bytesPerSecond: PropTypes.number,
   bytesPerSecondFormatted: PropTypes.string,
-  bytesPerClickUpgradeCost: PropTypes.number
+  bytesPerClickUpgradeCost: PropTypes.number,
+  autoUpgrades: PropTypes.object
 }
 
 const mapStateToProps = state => {
@@ -92,7 +98,8 @@ const mapStateToProps = state => {
     bytesPerClickFormatted: state.bytesPerClickFormatted,
     bytesPerSecond: state.bytesPerSecond,
     bytesPerSecondFormatted: state.bytesPerSecondFormatted,
-    bytesPerClickUpgradeCost: state.bytesPerClickUpgradeCost
+    bytesPerClickUpgradeCost: state.bytesPerClickUpgradeCost,
+    autoUpgrades: state.autoUpgrades
   }
 }
 

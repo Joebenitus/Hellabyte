@@ -1,5 +1,6 @@
 import * as c from './../actions/ActionTypes';
 import { getByteMetric } from './../components/GetByteMetric';
+import { AutoUpgradeList } from './../components/AutoUpgradeList';
 
 const defaultState = {
   byteCount: 0,
@@ -8,11 +9,12 @@ const defaultState = {
   bytesPerClickFormatted: '1 Bytes',
   bytesPerSecond: 0,
   bytesPerSecondFormatted: '0 Bytes',
-  bytesPerClickUpgradeCost: 1000
+  bytesPerClickUpgradeCost: 1000,
+  autoUpgrades: AutoUpgradeList
 }
 
 export default (state=defaultState, action) => {
-  const { byteCount, bytesPerClick, bytesPerSecond, bytesPerClickUpgradeCost } = action;
+  const { byteCount, bytesPerClick, bytesPerSecond, bytesPerClickUpgradeCost, autoUpgrades, index } = action;
   switch(action.type) {
     case c.MINE_BYTES:
       return Object.assign({}, state, {
@@ -26,10 +28,14 @@ export default (state=defaultState, action) => {
         bytesPerClickFormatted: getByteMetric(bytesPerClick * 2),
         bytesPerClickUpgradeCost: bytesPerClickUpgradeCost * 2
       })
-      
     case c.UPGRADE_BYTES_PER_SEC:
       return Object.assign({}, state, {
-        bytesPerSecond: bytesPerSecond + 1
+        byteCount: byteCount - autoUpgrades[index].cost,
+        bytesPerSecond: bytesPerSecond + autoUpgrades[index].bytesPerSecond,
+        autoUpgrades: {
+          ...autoUpgrades,
+          [index]: {...autoUpgrades[index], owned: autoUpgrades[index].owned + 1, cost: Math.floor(autoUpgrades[index].cost * 1.3)}
+        }
       })
     case c.INCREMENT_BYTES_BY_BPS:
       return Object.assign({}, state, {
