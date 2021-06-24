@@ -20,6 +20,7 @@ class MainController extends React.Component {
     setInterval(() => {
       const { dispatch, byteCount, bytesPerSecond } = this.props;
       dispatch(a.incrementBytesByBPS(byteCount, bytesPerSecond))
+      localStorage.setItem('local-save', JSON.stringify(this.props))
     }, 1000)
   }
 
