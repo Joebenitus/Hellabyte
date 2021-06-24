@@ -55,7 +55,7 @@ class MainController extends React.Component {
     <>
       <div className='row'>
         <div className='col-md-6 align-center h-70'>
-          <BytesPanel bytes={this.props.byteCountFormatted} bytesPerClick={this.props.bytesPerClickFormatted}/>
+          <BytesPanel bytes={this.props.byteCountFormatted} bytesPerClick={this.props.bytesPerClickFormatted} bytesPerSecond={this.props.bytesPerSecondFormatted}/>
           <button onClick = {this.handleMiningBytes}>Download Bytes</button>
         </div>
         <div className='col-md-6 align-center h-70'>

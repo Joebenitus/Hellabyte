@@ -32,6 +32,7 @@ export default (state=defaultState, action) => {
       return Object.assign({}, state, {
         byteCount: byteCount - autoUpgrades[index].cost,
         bytesPerSecond: bytesPerSecond + autoUpgrades[index].bytesPerSecond,
+        bytesPerSecondFormatted: getByteMetric(bytesPerSecond + autoUpgrades[index].bytesPerSecond),
         autoUpgrades: {
           ...autoUpgrades,
           [index]: {...autoUpgrades[index], owned: autoUpgrades[index].owned + 1, cost: Math.floor(autoUpgrades[index].cost * 1.3)}

@@ -6,6 +6,7 @@ function BytesPanel(props) {
     <React.Fragment>
       <h2>{props.bytes}</h2>
       <p>{props.bytesPerClick} per click</p>
+      <p>{props.bytesPerSecond} per second</p>
     </React.Fragment>
   )
 }
